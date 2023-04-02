@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8e4d0go3kkeg"]
+
+[ext_resource type="Script" path="res://scripts/directors/upgrades/UpgradeDirector.cs" id="1_dp2x8"]
+[ext_resource type="PackedScene" path="res://scenes/ui/overlays/UpgradeSelectUI.tscn" id="2_j8dlf"]
+[ext_resource type="Resource" uid="uid://bu1soon4dsgvm" path="res://resources/loot_tables/WeightedUpgrades.tres" id="3_uejup"]
+
+[node name="UpgradeDirector" type="Node"]
+script = ExtResource("1_dp2x8")
+_upgradeSelectUI = ExtResource("2_j8dlf")
+_upgradePool = ExtResource("3_uejup")

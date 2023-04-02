@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d4ciyp2b4c4kd"]
+
+[ext_resource type="PackedScene" uid="uid://daw1s6qahiub3" path="res://scenes/game_objects/drops/ExperienceVialSmall.tscn" id="1_am8u3"]
+[ext_resource type="Script" path="res://scripts/logic/LootTable.cs" id="2_g8aur"]
+
+[resource]
+script = ExtResource("2_g8aur")
+_keys = Array[PackedScene]([ExtResource("1_am8u3")])
+_weights = Array[float]([0.0])

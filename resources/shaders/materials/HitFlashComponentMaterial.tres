@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bkb2vi623v836"]
+
+[ext_resource type="Shader" path="res://resources/shaders/HitFlashComponent.gdshader" id="1_8tqeg"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_8tqeg")
+shader_parameter/flash_colour = Color(1, 1, 1, 1)
+shader_parameter/flash_weight = 0.0

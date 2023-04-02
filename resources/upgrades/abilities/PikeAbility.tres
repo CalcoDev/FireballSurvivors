@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://rb45d7if4r5w"]
+
+[ext_resource type="PackedScene" uid="uid://cxxnwax1hvnwq" path="res://scenes/components/abilities/pike_ability/PikeAbilityController.tscn" id="1_1kolr"]
+[ext_resource type="Resource" uid="uid://buxlsippcpcwe" path="res://resources/loot_tables/upgrades/PikeUpgradeAddons.tres" id="2_0nhsu"]
+[ext_resource type="Script" path="res://scripts/resources/Ability.cs" id="3_4idri"]
+
+[resource]
+script = ExtResource("3_4idri")
+AbilityControllerScene = ExtResource("1_1kolr")
+Id = "pike"
+Name = "Pike"
+Description = "Master Pikeman Theo wannabe. Still packs quite a sharp."
+MaxLevel = 1
+AddonLootTable = ExtResource("2_0nhsu")

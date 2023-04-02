@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://drjvx3gbuxd5m"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_v585l"]
+
+[resource]
+script = ExtResource("1_v585l")
+Id = "bronze_sword_damage"
+Name = "Sword Damage"
+Description = "Incease bronze sword damage by 50% (+10% per stack)."
+MaxLevel = -1

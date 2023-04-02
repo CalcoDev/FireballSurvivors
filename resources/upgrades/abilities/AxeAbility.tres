@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bn1un7k48hri0"]
+
+[ext_resource type="PackedScene" uid="uid://h20w6pus7mi2" path="res://scenes/components/abilities/axe_ability/AxeAbilityController.tscn" id="1_4r2qe"]
+[ext_resource type="Resource" uid="uid://cl7ear116858u" path="res://resources/loot_tables/upgrades/AxeUpgradeAddons.tres" id="2_ifp8i"]
+[ext_resource type="Script" path="res://scripts/resources/Ability.cs" id="2_ykcdg"]
+
+[resource]
+script = ExtResource("2_ykcdg")
+AbilityControllerScene = ExtResource("1_4r2qe")
+Id = "axe"
+Name = "Axe"
+Description = "AAAAXXXXXXXXXXEEEEEEEEEEE"
+MaxLevel = -1
+AddonLootTable = ExtResource("2_ifp8i")

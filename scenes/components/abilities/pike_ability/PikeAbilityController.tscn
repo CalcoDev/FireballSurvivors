@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxxnwax1hvnwq"]
+
+[ext_resource type="Script" path="res://scripts/components/abilities/PikeAbilityController.cs" id="1_sn0kr"]
+[ext_resource type="PackedScene" uid="uid://dm6ygrvemgkbr" path="res://scenes/components/abilities/pike_ability/PikeAbility.tscn" id="2_3gjvv"]
+
+[node name="PikeAbilityController" type="Node"]
+script = ExtResource("1_sn0kr")
+Range = 450.0
+Speed = 250.0
+PierceCount = 999
+Damage = 15.0
+Knockback = 300.0
+AbilityPrefab = ExtResource("2_3gjvv")
+
+[node name="CooldownTimer" type="Timer" parent="."]

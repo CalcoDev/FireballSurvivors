@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://eu58tdkx7hh5"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_cubsx"]
+
+[resource]
+script = ExtResource("1_cubsx")
+Id = "pike_damage"
+Name = "Pike Damage"
+Description = "Make pike deal 5 (+5 per stack) more damage."
+MaxLevel = -1

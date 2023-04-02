@@ -1,0 +1,179 @@
+[gd_scene load_steps=16 format=3 uid="uid://dcwgyn7lgbiwu"]
+
+[ext_resource type="Script" path="res://scripts/game_objects/Player.cs" id="1_j6cwp"]
+[ext_resource type="PackedScene" uid="uid://bo0piwrw76yb0" path="res://scenes/components/HealthComponent.tscn" id="2_7bvte"]
+[ext_resource type="Texture2D" uid="uid://cns1bt4hh5dwn" path="res://assets/player/player.png" id="2_ok7be"]
+[ext_resource type="PackedScene" uid="uid://bnyby8ciqcs41" path="res://scenes/components/abilities/bronze_sword_ability/BronzeSwordAbilityController.tscn" id="2_vj1vt"]
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="3_evqhh"]
+[ext_resource type="PackedScene" uid="uid://b0ga53laer0o1" path="res://scenes/components/abilities/player_stats/PlayerStatsAbilityController.tscn" id="5_0bo4b"]
+[ext_resource type="PackedScene" uid="uid://4nh7qxijbp1" path="res://scenes/components/drops/DropPickupArea.tscn" id="5_58wh2"]
+[ext_resource type="PackedScene" uid="uid://bn18omp5cpr87" path="res://scenes/components/HurtboxComponent.tscn" id="5_t5vrs"]
+[ext_resource type="PackedScene" uid="uid://dw4112lq06tem" path="res://scenes/components/DeathComponent.tscn" id="6_n77o8"]
+
+[sub_resource type="Animation" id="Animation_lnpn5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8viiw"]
+resource_name = "walk"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Visuals/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Visuals/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Visuals/Sprite2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.812252, 2.07054, 1.23114, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 1.2), Vector2(1.2, 0.7), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_71c3p"]
+_data = {
+"RESET": SubResource("Animation_lnpn5"),
+"walk": SubResource("Animation_8viiw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_op55t"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbr5s"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ix30"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 8
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_j6cwp")
+MoveSpeed = 90.0
+Acceleration = 1000.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AbilityDirector/BronzeSwordAbilityController")
+libraries = {
+"": SubResource("AnimationLibrary_71c3p")
+}
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_7bvte")]
+
+[node name="FactionComponent" parent="." instance=ExtResource("3_evqhh")]
+FactionType = 0
+
+[node name="AbilityDirector" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="BronzeSwordAbilityController" parent="AbilityDirector" instance=ExtResource("2_vj1vt")]
+
+[node name="PlayerStatsAbilityController" parent="AbilityDirector" instance=ExtResource("5_0bo4b")]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 6)
+offset_left = -24.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 8.0
+pivot_offset = Vector2(24, 3)
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("_healthComponent") instance=ExtResource("6_n77o8")]
+_texture = ExtResource("2_ok7be")
+_healthComponent = NodePath("../HealthComponent")
+
+[node name="DropPickupArea" parent="." instance=ExtResource("5_58wh2")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPickupArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_op55t")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("HealthComponent", "FactionComponent") instance=ExtResource("5_t5vrs")]
+visible = false
+collision_mask = 4
+HealthComponent = NodePath("../HealthComponent")
+FactionComponent = NodePath("../FactionComponent")
+TakeContinuousDamage = true
+InvincibilityTime = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_nbr5s")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("2_ok7be")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8ix30")

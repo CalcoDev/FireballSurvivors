@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpyxxfhrm1khm"]
+
+[ext_resource type="Script" path="res://scripts/components/abilities/AxeAbilityController.cs" id="1_0bat5"]
+[ext_resource type="PackedScene" uid="uid://bl3ke2ih2klv2" path="res://scenes/components/abilities/axe_ability/AxeAbility.tscn" id="2_edsg8"]
+
+[node name="AxeAbilityController" type="Node"]
+script = ExtResource("1_0bat5")
+AbilityPrefab = ExtResource("2_edsg8")
+BaseCooldown = 3.0
+
+[node name="CooldownTimer" type="Timer" parent="."]
+autostart = true

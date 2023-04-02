@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://uefsskigtjlo"]
+
+[ext_resource type="PackedScene" uid="uid://bo0piwrw76yb0" path="res://scenes/components/HealthComponent.tscn" id="1_bh6dq"]
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="2_q8ekh"]
+[ext_resource type="PackedScene" uid="uid://c8g2idtxxouo4" path="res://scenes/components/drops/DropPickupOnDeathComponent.tscn" id="3_d2nwf"]
+[ext_resource type="PackedScene" uid="uid://dw4112lq06tem" path="res://scenes/components/DeathComponent.tscn" id="4_x3hoj"]
+[ext_resource type="PackedScene" uid="uid://bn18omp5cpr87" path="res://scenes/components/HurtboxComponent.tscn" id="5_ixnr6"]
+[ext_resource type="Texture2D" uid="uid://dugf10idga1b4" path="res://assets/enemies/dark_wizard/dark_wizard.png" id="6_bq41m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_no8w8"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgvux"]
+radius = 6.0
+
+[node name="EnemyBase" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_bh6dq")]
+
+[node name="FactionComponent" parent="." instance=ExtResource("2_q8ekh")]
+
+[node name="DropPickupOnDeathComponent" parent="." instance=ExtResource("3_d2nwf")]
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("_healthComponent") instance=ExtResource("4_x3hoj")]
+_healthComponent = NodePath("../HealthComponent")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("HealthComponent", "FactionComponent") instance=ExtResource("5_ixnr6")]
+position = Vector2(0, -7)
+collision_mask = 2
+HealthComponent = NodePath("../HealthComponent")
+FactionComponent = NodePath("../FactionComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_no8w8")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("6_bq41m")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_lgvux")

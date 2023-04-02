@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6jxyrmnp4p1n"]
+
+[ext_resource type="Script" path="res://scripts/components/abilities/GaxeAbilityController.cs" id="1_kyeno"]
+[ext_resource type="PackedScene" uid="uid://bu0fej2mwjg3p" path="res://scenes/components/abilities/gaxe_ability/GaxeAbility.tscn" id="2_2dwj3"]
+
+[node name="GaxeAbilityController" type="Node"]
+script = ExtResource("1_kyeno")
+AbilityPrefab = ExtResource("2_2dwj3")
+BaseCooldown = 3.0
+
+[node name="CooldownTimer" type="Timer" parent="."]
+autostart = true

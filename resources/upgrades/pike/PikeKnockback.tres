@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dmpb1lvbab32l"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_07vcb"]
+
+[resource]
+script = ExtResource("1_07vcb")
+Id = "pike_knockback"
+Name = "Pike Knockback"
+Description = "Make the pike launch enemies farther. (+ ??? per stack cuz I have no clue how to calculate that)"
+MaxLevel = -1

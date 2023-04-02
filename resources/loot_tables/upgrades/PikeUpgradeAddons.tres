@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://buxlsippcpcwe"]
+
+[ext_resource type="Resource" uid="uid://eu58tdkx7hh5" path="res://resources/upgrades/pike/PikeDamage.tres" id="1_c1wrh"]
+[ext_resource type="Resource" uid="uid://dnb7mcnhkwh6p" path="res://resources/upgrades/pike/PikeFireRate.tres" id="2_k8fvx"]
+[ext_resource type="Script" path="res://scripts/logic/LootTable.cs" id="3_b5ep3"]
+[ext_resource type="Resource" uid="uid://dmpb1lvbab32l" path="res://resources/upgrades/pike/PikeKnockback.tres" id="3_wqwj2"]
+[ext_resource type="Resource" uid="uid://dksixu8oqnkh5" path="res://resources/upgrades/pike/PikeSpeed.tres" id="4_dgjan"]
+
+[resource]
+script = ExtResource("3_b5ep3")
+_keys = Array[Object]([ExtResource("1_c1wrh"), ExtResource("2_k8fvx"), ExtResource("3_wqwj2"), ExtResource("4_dgjan")])
+_weights = Array[float]([75.0, 75.0, 75.0, 75.0])

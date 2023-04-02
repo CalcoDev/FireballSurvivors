@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dnb7mcnhkwh6p"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_sb5cb"]
+
+[resource]
+script = ExtResource("1_sb5cb")
+Id = "pike_fire_rate"
+Name = "Pike Fire Rate"
+Description = "Get closer to achieveing true MPT experience."
+MaxLevel = -1

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cl5h804ywgu8x"]
+
+[ext_resource type="Resource" uid="uid://b4lay1qvebtba" path="res://resources/upgrades/player_stats/PlayerSpeed.tres" id="1_a6pfm"]
+[ext_resource type="Script" path="res://scripts/logic/LootTable.cs" id="3_1o46u"]
+
+[resource]
+script = ExtResource("3_1o46u")
+_keys = Array[Object]([ExtResource("1_a6pfm")])
+_weights = Array[float]([80.0])

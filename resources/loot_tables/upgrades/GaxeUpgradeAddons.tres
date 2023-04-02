@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://boo1m117jkbp1"]
+
+[ext_resource type="Resource" uid="uid://bw6alibtsig83" path="res://resources/upgrades/GaxeFireSpeed.tres" id="1_3jnm8"]
+[ext_resource type="Resource" uid="uid://bp6r7j73w7j8j" path="res://resources/upgrades/GaxeDamage.tres" id="2_1u7l3"]
+[ext_resource type="Resource" uid="uid://ct20c4dmyv1ww" path="res://resources/upgrades/GaxeCount.tres" id="3_ehbn3"]
+[ext_resource type="Script" path="res://scripts/logic/LootTable.cs" id="3_fo7s6"]
+
+[resource]
+script = ExtResource("3_fo7s6")
+_keys = Array[Object]([ExtResource("1_3jnm8"), ExtResource("2_1u7l3"), ExtResource("3_ehbn3")])
+_weights = Array[float]([100.0, 75.0, 75.0])

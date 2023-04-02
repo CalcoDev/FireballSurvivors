@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dm6ygrvemgkbr"]
+
+[ext_resource type="Script" path="res://scripts/game_objects/Projectile.cs" id="1_uihff"]
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="2_jp11n"]
+[ext_resource type="Texture2D" uid="uid://7idswru5xcwl" path="res://assets/abilities/pike/pike.png" id="3_xk122"]
+[ext_resource type="PackedScene" uid="uid://47tmkduxibl" path="res://scenes/HitboxComponent.tscn" id="4_hd31i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbgig"]
+size = Vector2(15, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okuig"]
+size = Vector2(62, 6)
+
+[node name="PikeAbility" type="CharacterBody2D"]
+collision_layer = 8
+motion_mode = 1
+script = ExtResource("1_uihff")
+PierceCount = 99
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="FactionComponent" parent="." instance=ExtResource("2_jp11n")]
+FactionType = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_xk122")
+offset = Vector2(27, 0)
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("FactionComponent") instance=ExtResource("4_hd31i")]
+position = Vector2(50, 0)
+collision_layer = 2
+FactionComponent = NodePath("../FactionComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_fbgig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(27, 0)
+shape = SubResource("RectangleShape2D_okuig")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bu1soon4dsgvm"]
+
+[ext_resource type="Resource" uid="uid://bn1un7k48hri0" path="res://resources/upgrades/abilities/AxeAbility.tres" id="1_v2jqf"]
+[ext_resource type="Resource" uid="uid://ktyjsnqe01jv" path="res://resources/upgrades/abilities/BronzeSwordAbility.tres" id="2_qko21"]
+[ext_resource type="Resource" uid="uid://rb45d7if4r5w" path="res://resources/upgrades/abilities/PikeAbility.tres" id="3_hoy0j"]
+[ext_resource type="Script" path="res://scripts/logic/LootTable.cs" id="3_vxyfw"]
+[ext_resource type="Resource" uid="uid://b4lay1qvebtba" path="res://resources/upgrades/player_stats/PlayerSpeed.tres" id="4_kxg65"]
+
+[resource]
+script = ExtResource("3_vxyfw")
+_keys = Array[Object]([ExtResource("1_v2jqf"), ExtResource("2_qko21"), ExtResource("3_hoy0j"), ExtResource("4_kxg65")])
+_weights = Array[float]([75.0, 100.0, 50.0, 900.0])

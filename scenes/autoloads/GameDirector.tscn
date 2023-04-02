@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://j5073g6q4sw2"]
+
+[ext_resource type="Script" path="res://scripts/autoloads/GameDirector.cs" id="1_mjqm8"]
+[ext_resource type="PackedScene" uid="uid://bxasc6jbxf767" path="res://scenes/ui/physical/FloatingText.tscn" id="2_pxxpf"]
+
+[node name="GameDirector" type="Node"]
+script = ExtResource("1_mjqm8")
+_floatingTextScene = ExtResource("2_pxxpf")

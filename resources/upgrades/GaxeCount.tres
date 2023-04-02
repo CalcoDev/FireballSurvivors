@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ct20c4dmyv1ww"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_52lqp"]
+
+[resource]
+script = ExtResource("1_52lqp")
+Id = "gaxe_count"
+Name = "Gaxe Count"
+Description = "Who wouldn't want more guns? (+1 Gaxe)"
+MaxLevel = -1

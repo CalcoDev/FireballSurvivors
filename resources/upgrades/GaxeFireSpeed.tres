@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bw6alibtsig83"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_ug13b"]
+
+[resource]
+script = ExtResource("1_ug13b")
+Id = "gaxe_firespeed"
+Name = "Gaxe Fire Speed"
+Description = "Make Gaxe shoot 25% (+10% per stack) faster."
+MaxLevel = -1

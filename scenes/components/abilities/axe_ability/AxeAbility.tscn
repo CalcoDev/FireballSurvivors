@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl3ke2ih2klv2"]
+
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="1_2isty"]
+[ext_resource type="Script" path="res://scripts/game_objects/abilities/AxeAbility.cs" id="1_jpk2q"]
+[ext_resource type="Texture2D" uid="uid://8i73xl8hua10" path="res://assets/abilities/axe.png" id="2_gi12o"]
+[ext_resource type="PackedScene" uid="uid://47tmkduxibl" path="res://scenes/HitboxComponent.tscn" id="3_5rxg2"]
+
+[sub_resource type="Animation" id="Animation_tkbrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7gyle"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vp73"]
+_data = {
+"RESET": SubResource("Animation_tkbrs"),
+"default": SubResource("Animation_7gyle")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxcnq"]
+radius = 11.0454
+
+[node name="AxeAbility" type="Node2D"]
+script = ExtResource("1_jpk2q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_2vp73")
+}
+
+[node name="FactionComponent" parent="." instance=ExtResource("1_2isty")]
+FactionType = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gi12o")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("FactionComponent") instance=ExtResource("3_5rxg2")]
+collision_layer = 2
+Damage = 30.0
+ContinuousDamage = true
+FactionComponent = NodePath("../FactionComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_uxcnq")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b4lay1qvebtba"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_ld3xf"]
+
+[resource]
+script = ExtResource("1_ld3xf")
+Id = "player_speed"
+Name = "Movement Speed Increase"
+Description = "Increase movement speed by 15% (+15% per stack)."
+MaxLevel = -1

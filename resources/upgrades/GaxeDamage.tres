@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bp6r7j73w7j8j"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_56r61"]
+
+[resource]
+script = ExtResource("1_56r61")
+Id = "gaxe_damage"
+Name = "Gaxe Damage"
+Description = "Increase the Gaxe's damage by 10(+10 per stack)."
+MaxLevel = -1

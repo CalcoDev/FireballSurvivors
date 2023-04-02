@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cp2wdbdekliqc"]
+
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="1_2eypk"]
+[ext_resource type="Script" path="res://scripts/game_objects/Projectile.cs" id="1_cpg32"]
+[ext_resource type="PackedScene" uid="uid://47tmkduxibl" path="res://scenes/HitboxComponent.tscn" id="2_p6q80"]
+[ext_resource type="Texture2D" uid="uid://bqktlylqrcldd" path="res://assets/enemies/dark_wizard/dark_wizard_projectile.png" id="3_plw5a"]
+[ext_resource type="Texture2D" uid="uid://b0qn0wgvrkwd4" path="res://assets/lights/circular_32px.png" id="5_r7sth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fysmw"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eemrn"]
+size = Vector2(10, 10)
+
+[node name="EvilWizardProjectile" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_cpg32")
+Damage = 30.0
+
+[node name="FactionComponent" parent="." instance=ExtResource("1_2eypk")]
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("FactionComponent") instance=ExtResource("2_p6q80")]
+collision_layer = 4
+Damage = 20.0
+FactionComponent = NodePath("../FactionComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_fysmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_plw5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eemrn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = ExtResource("5_r7sth")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfpbh8bk2tv3m"]
+
+[ext_resource type="Script" path="res://scripts/directors/ArenaDirector.cs" id="1_lsdeo"]
+[ext_resource type="PackedScene" path="res://scenes/ui/screens/VictoryScreenUI.tscn" id="2_bf3x5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/screens/DefeatScreenUI.tscn" id="3_565ih"]
+
+[node name="ArenaDirector" type="Node"]
+script = ExtResource("1_lsdeo")
+_victoryScreenScene = ExtResource("2_bf3x5")
+_defeatScreenScene = ExtResource("3_565ih")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true

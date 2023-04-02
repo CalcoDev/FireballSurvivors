@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bu0fej2mwjg3p"]
+
+[ext_resource type="Script" path="res://scripts/game_objects/abilities/GaxeAbility.cs" id="1_rdvep"]
+[ext_resource type="PackedScene" uid="uid://m5lhaxfnhqof" path="res://scenes/components/abilities/gaxe_ability/GaxeAbilityProjectile.tscn" id="2_7yquy"]
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="3_1c84g"]
+[ext_resource type="Texture2D" uid="uid://e7x7vw0scpto" path="res://assets/abilities/gaxe.png" id="4_l6h5w"]
+[ext_resource type="PackedScene" uid="uid://47tmkduxibl" path="res://scenes/HitboxComponent.tscn" id="5_m4tm0"]
+
+[sub_resource type="Animation" id="Animation_tkbrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7gyle"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vp73"]
+_data = {
+"RESET": SubResource("Animation_tkbrs"),
+"default": SubResource("Animation_7gyle")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbhjk"]
+radius = 9.0
+
+[node name="GaxeAbility" type="Node2D"]
+script = ExtResource("1_rdvep")
+_projectileScene = ExtResource("2_7yquy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_2vp73")
+}
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="FactionComponent" parent="." instance=ExtResource("3_1c84g")]
+FactionType = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_l6h5w")
+
+[node name="FirePoint" type="Marker2D" parent="Sprite2D"]
+unique_name_in_owner = true
+position = Vector2(7, 0)
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("FactionComponent") instance=ExtResource("5_m4tm0")]
+collision_layer = 2
+Damage = 5.0
+ContinuousDamage = true
+FactionComponent = NodePath("../FactionComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_dbhjk")

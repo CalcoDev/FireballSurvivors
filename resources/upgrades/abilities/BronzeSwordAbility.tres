@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://ktyjsnqe01jv"]
+
+[ext_resource type="PackedScene" uid="uid://bnyby8ciqcs41" path="res://scenes/components/abilities/bronze_sword_ability/BronzeSwordAbilityController.tscn" id="1_7000p"]
+[ext_resource type="Resource" uid="uid://cooim257yj5jq" path="res://resources/loot_tables/upgrades/SwordUpgradeAddons.tres" id="2_wp8i1"]
+[ext_resource type="Script" path="res://scripts/resources/Ability.cs" id="3_cxidj"]
+
+[resource]
+script = ExtResource("3_cxidj")
+AbilityControllerScene = ExtResource("1_7000p")
+Id = "bronze_sword_ability"
+Name = "Bronze Sword"
+Description = "A magical, self-attack sword will spawn every 1.5 seconds, dealing 10 damage to aid you in your adventures."
+MaxLevel = 1
+AddonLootTable = ExtResource("2_wp8i1")

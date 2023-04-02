@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://wvntbp7apew5"]
+
+[ext_resource type="Script" path="res://scripts/ui/overlays/ExperienceBarUI.cs" id="1_d8ocw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wi1h"]
+bg_color = Color(0, 0.6, 0.858824, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="ExperienceBarUI" type="CanvasLayer"]
+script = ExtResource("1_d8ocw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ProgressBarA" type="ProgressBar" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_6wi1h")
+max_value = 1.0
+value = 0.5
+show_percentage = false

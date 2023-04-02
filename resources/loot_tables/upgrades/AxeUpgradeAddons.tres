@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b348uf5yndnkm"]
+
+[ext_resource type="Resource" uid="uid://bepewxmfwj44e" path="res://resources/upgrades/abilities/GaxeAbility.tres" id="1_ts0sj"]
+[ext_resource type="Script" path="res://scripts/logic/LootTable.cs" id="2_74jag"]
+
+[resource]
+script = ExtResource("2_74jag")
+_keys = Array[Object]([ExtResource("1_ts0sj")])
+_weights = Array[float]([200.0])

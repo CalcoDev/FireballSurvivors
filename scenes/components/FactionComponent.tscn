@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs5i3fuwyusnq"]
+
+[ext_resource type="Script" path="res://scripts/components/FactionComponent.cs" id="1_vwwxd"]
+
+[node name="FactionComponent" type="Node"]
+script = ExtResource("1_vwwxd")

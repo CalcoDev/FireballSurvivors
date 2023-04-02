@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxasc6jbxf767"]
+
+[ext_resource type="Script" path="res://scripts/ui/physical/FloatingText.cs" id="1_ogmic"]
+
+[node name="FloatingText" type="Node2D"]
+script = ExtResource("1_ogmic")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -16.0
+offset_right = 50.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+theme_override_constants/outline_size = 8
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1

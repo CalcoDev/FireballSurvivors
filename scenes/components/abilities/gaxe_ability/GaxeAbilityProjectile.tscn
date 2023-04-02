@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://m5lhaxfnhqof"]
+
+[ext_resource type="Script" path="res://scripts/game_objects/Projectile.cs" id="1_0ldui"]
+[ext_resource type="PackedScene" uid="uid://bs5i3fuwyusnq" path="res://scenes/components/FactionComponent.tscn" id="2_xxmfb"]
+[ext_resource type="PackedScene" uid="uid://47tmkduxibl" path="res://scenes/HitboxComponent.tscn" id="3_kttr6"]
+[ext_resource type="Texture2D" uid="uid://bfcc4njke7fpg" path="res://assets/abilities/axe/gaxe_projectile.png" id="4_adbpm"]
+[ext_resource type="Texture2D" uid="uid://b0qn0wgvrkwd4" path="res://assets/lights/circular_32px.png" id="5_drsmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6qxk"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha508"]
+size = Vector2(10, 6)
+
+[node name="GaxeAbilityProjectile" type="CharacterBody2D"]
+collision_layer = 8
+motion_mode = 1
+script = ExtResource("1_0ldui")
+Damage = 30.0
+
+[node name="FactionComponent" parent="." instance=ExtResource("2_xxmfb")]
+FactionType = 0
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("FactionComponent") instance=ExtResource("3_kttr6")]
+collision_layer = 2
+Damage = 20.0
+FactionComponent = NodePath("../FactionComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_x6qxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_adbpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ha508")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = ExtResource("5_drsmh")

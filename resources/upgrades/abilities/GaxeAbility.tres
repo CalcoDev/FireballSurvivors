@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bepewxmfwj44e"]
+
+[ext_resource type="PackedScene" uid="uid://6jxyrmnp4p1n" path="res://scenes/components/abilities/gaxe_ability/GaxeAbilityController.tscn" id="1_3kpfn"]
+[ext_resource type="Resource" uid="uid://boo1m117jkbp1" path="res://resources/loot_tables/upgrades/GaxeUpgradeAddons.tres" id="2_87wa0"]
+[ext_resource type="Script" path="res://scripts/resources/Ability.cs" id="2_fu7d8"]
+
+[resource]
+script = ExtResource("2_fu7d8")
+AbilityControllerScene = ExtResource("1_3kpfn")
+Id = "gaxe"
+Name = "Gaxe"
+Description = "The axe now shoots bullets... great."
+MaxLevel = -1
+AddonLootTable = ExtResource("2_87wa0")

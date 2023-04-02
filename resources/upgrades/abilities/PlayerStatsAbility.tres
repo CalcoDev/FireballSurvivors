@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="PackedScene" uid="uid://b0ga53laer0o1" path="res://scenes/components/abilities/player_stats/PlayerStatsAbilityController.tscn" id="1_ond66"]
+[ext_resource type="Resource" uid="uid://cl5h804ywgu8x" path="res://resources/loot_tables/upgrades/PlayerStatsUpgradeAddons.tres" id="2_e1p71"]
+[ext_resource type="Script" path="res://scripts/resources/Ability.cs" id="3_thsu5"]
+
+[resource]
+script = ExtResource("3_thsu5")
+AbilityControllerScene = ExtResource("1_ond66")
+Id = "player_stats"
+Name = "_player stats_"
+Description = "_this should never appear in game lmao_"
+MaxLevel = 1
+AddonLootTable = ExtResource("2_e1p71")

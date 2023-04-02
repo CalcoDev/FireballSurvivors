@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://lqmdtrthfc8r"]
+
+[ext_resource type="Script" path="res://scripts/resources/AbilityUpgrade.cs" id="1_hn6wf"]
+
+[resource]
+script = ExtResource("1_hn6wf")
+Id = "bronze_sword_attack_rate"
+Name = "Sword Attack Rate"
+Description = "Incease bronze sword attack rate by 10%."
+MaxLevel = -1

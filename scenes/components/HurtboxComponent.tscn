@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn18omp5cpr87"]
+
+[ext_resource type="Script" path="res://scripts/components/HurtboxComponent.cs" id="1_i4j70"]
+
+[node name="HurtboxComponent" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_i4j70")
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.2

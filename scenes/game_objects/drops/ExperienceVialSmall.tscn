@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://daw1s6qahiub3"]
+
+[ext_resource type="Texture2D" uid="uid://bndl8aehwu4bf" path="res://assets/drops/exp_vial_small.png" id="1_4va7d"]
+[ext_resource type="Script" path="res://scripts/game_objects/drops/ExperienceVial.cs" id="1_26h7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oihma"]
+
+[node name="ExperienceVialSmall" type="Node2D"]
+script = ExtResource("1_26h7u")
+Amount = 1
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_oihma")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4va7d")
+offset = Vector2(0, -7)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnyby8ciqcs41"]
+
+[ext_resource type="Script" path="res://scripts/components/abilities/BronzeSwordAbilityController.cs" id="1_6ywcr"]
+[ext_resource type="PackedScene" uid="uid://b7nxi512h3ha2" path="res://scenes/components/abilities/bronze_sword_ability/BronzeSwordAbility.tscn" id="2_1bve1"]
+
+[node name="BronzeSwordAbilityController" type="Node"]
+script = ExtResource("1_6ywcr")
+Damage = 20.0
+AbilityPrefab = ExtResource("2_1bve1")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
